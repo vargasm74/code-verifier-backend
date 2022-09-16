@@ -19,6 +19,14 @@ app.get('/hello', (req, resp) => {
     //send hello word
     resp.send('welcome to GET route: Helloo! ');
 });
+app.get('/data', (req, resp) => {
+    //send hello word
+    resp.send('welcome to GET route: Helloo! ');
+});
+app.get('/practico1', (req, resp) => {
+    //send hello word
+    resp.json({ data: { "message": "Goodbye, world" } });
+});
 // Execute APP and Listen 
 app.listen(port, () => {
     console.log(`EXPRESS SERVER: Runnig at http://localhost:${port}`);

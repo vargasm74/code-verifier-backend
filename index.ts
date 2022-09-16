@@ -24,8 +24,17 @@ app.get('/hello', (req: Request, resp: Response) => {
     resp.send('welcome to GET route: Helloo! ');
 });
 
+app.get('/data', (req: Request, resp: Response) => {
+    //send hello word
 
+    resp.send('welcome to GET route: Helloo! ');
+});
 
+app.get('/practico1', (req: Request, resp: Response) => {
+    //send hello word
+
+    resp.json({data:{ "message": "Goodbye, world" }});
+});
 // Execute APP and Listen 
 
 app.listen(port, () => {
