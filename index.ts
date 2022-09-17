@@ -1,46 +1,16 @@
-import express, {Express, Request, Response} from "express";
 import dotenv from 'dotenv';
+import server from './src/server'
+import { LogError, LogSucces } from './src/utils/logger';
 
 // configuracion .env 
 dotenv.config();
 
-// create app
+const port= process.env.PORT || 8000;
 
-const app: Express = express();
-
-const port: string | number = process.env.port || 8000;
-
-//define la route de la app
-
-app.get('/', (req: Request, resp: Response) => {
-    //send hello word
-
-    resp.send('welcome to my API Restfull:  Express + JS+ Swagger + Mongoose');
+//execute server;
+server.listen(port, () =>{ 
+    LogSucces(`[SERVER ON]:Running in http://localhost:${port}/api`);
 });
-
-app.get('/hello', (req: Request, resp: Response) => {
-    //send hello word
-
-    resp.send('welcome to GET route: Helloo! ');
+server.on('error',(error) => {
+    LogError(`[SERVER ERROR]: ${error}`);
 });
-
-app.get('/data', (req: Request, resp: Response) => {
-    //send hello word
-
-    resp.send('welcome to GET route: Helloo! ');
-});
-
-app.get('/practico1', (req: Request, resp: Response) => {
-    //send hello word
-
-    resp.json({data:{ "message": "Goodbye, world" }});
-});
-// Execute APP and Listen 
-
-app.listen(port, () => {
-    console.log(`EXPRESS SERVER: Runnig at http://localhost:${port}`)
-
-})
-
-
-

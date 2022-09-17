@@ -79,8 +79,15 @@ Ran all test suites.
 # cracion de log para ver distintos estados info success warning error 
  utils => logger.ts
 
-#
-
-
+# configuracion es de router y controller
+dir interfaces
+index.ts
+dir router
+index.ts and helloRouter and index.ts 
+dir server
+index.ts
+# instalacion de modulos y mas seguridad helmet
+npm i cors helmet
+npm i -D cors @types/cors
 
 

@@ -3,32 +3,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const server_1 = __importDefault(require("./src/server"));
+const logger_1 = require("./src/utils/logger");
 // configuracion .env 
 dotenv_1.default.config();
-// create app
-const app = (0, express_1.default)();
-const port = process.env.port || 8000;
-//define la route de la app
-app.get('/', (req, resp) => {
-    //send hello word
-    resp.send('welcome to my API Restfull:  Express + JS+ Swagger + Mongoose');
+const port = process.env.PORT || 8000;
+//execute server;
+server_1.default.listen(port, () => {
+    (0, logger_1.LogSucces)(`[SERVER ON]:Running in http://localhost:${port}/api`);
 });
-app.get('/hello', (req, resp) => {
-    //send hello word
-    resp.send('welcome to GET route: Helloo! ');
-});
-app.get('/data', (req, resp) => {
-    //send hello word
-    resp.send('welcome to GET route: Helloo! ');
-});
-app.get('/practico1', (req, resp) => {
-    //send hello word
-    resp.json({ data: { "message": "Goodbye, world" } });
-});
-// Execute APP and Listen 
-app.listen(port, () => {
-    console.log(`EXPRESS SERVER: Runnig at http://localhost:${port}`);
+server_1.default.on('error', (error) => {
+    (0, logger_1.LogError)(`[SERVER ERROR]: ${error}`);
 });
 //# sourceMappingURL=index.js.map
