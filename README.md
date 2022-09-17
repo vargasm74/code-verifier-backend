@@ -41,14 +41,13 @@ npm jest --init
 npm i -D serve
 ejemplo
 
-$ npm run serve:coverage
+ npm run serve:coverage
 
-> code-verifier-backend@1.0.0 serve:coverage
-> npm run test && cd coverage/lcov-report && npx serve
+code-verifier-backend@1.0.0 serve:coverage
+npm run test && cd coverage/lcov-report && npx serve
 
-
-> code-verifier-backend@1.0.0 test
-> jest
+ code-verifier-backend@1.0.0 test
+ jest
 
  PASS  __tests__/example.spec.ts (7.437 s)
   My First test suite
@@ -77,9 +76,10 @@ Ran all test suites.
    └─────────────────────────────────────────────────┘
    
    
-   
-   
+# cracion de log para ver distintos estados info success warning error 
+ utils => logger.ts
 
+#
 
 
 
