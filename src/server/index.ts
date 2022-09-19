@@ -21,6 +21,9 @@ server.use(
     rootRouter
     );
 
+    //static server
+    server.use(express.static('public'));
+
 //TODO:moongoose connection
 
 //security config

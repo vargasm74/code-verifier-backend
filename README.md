@@ -90,4 +90,12 @@ index.ts
 npm i cors helmet
 npm i -D cors @types/cors
 
+## se carga el ts-loader
+npm i -D ts-loader
+
+## modulo swagger
+ npm i --save swagger-jsdoc swagger-ui-express
+ # instalamos tsoa
+ npm i tsoa
+
 

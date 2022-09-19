@@ -4,12 +4,14 @@
   "description": "node express project backend",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "prueba:webpack": "npx webpack --mode production",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" ",
     "start:local": "npx nodemon index.js",
     "test": "jest",
-    "serve:coverage": "npm run test && cd coverage/lcov-report && npx serve"
+    "serve:coverage": "npm run test && cd coverage/lcov-report && npx serve",
+    "build": "npx webpack --mode develop",
+    "build:prod": "npx webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "helmet": "^6.0.0"
+    "helmet": "^6.0.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0",
+    "tsoa": "^4.1.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -45,6 +50,7 @@
     "serve": "^14.0.1",
     "supertest": "^6.2.4",
     "ts-jest": "^29.0.1",
+    "ts-loader": "^9.4.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
     "webpack": "^5.74.0",
