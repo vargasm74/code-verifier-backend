@@ -1,11 +1,11 @@
 import { Get, Query, Route, Tags } from "tsoa";
 import { BasicResponse } from "./types";
-import { IHelloController } from "./interfaces";
-import { LogSuccess } from "../utils/logger";
+import { IHelloControler } from "./interfaces";
+import { LogSucces } from "../utils/logger";
 
 @Route("/api/hello")
 @Tags("HelloController")
-export class HelloController implements IHelloController {
+export class HelloController implements IHelloControler {
     /**
      * Endpoint to retreive a Message "Hello {name}" in JSON
      * @param { string | undefined } name Name of user to be greeted
@@ -13,7 +13,7 @@ export class HelloController implements IHelloController {
      */
     @Get("/")
     public async getMessage(@Query()name?: string): Promise<BasicResponse> {
-        LogSuccess('[/api/hello] Get Request');
+        LogSucces('[/api/hello] Get Request');
 
         return {
             message: `Hello, ${name || "World!"}`
