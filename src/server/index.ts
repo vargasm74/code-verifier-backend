@@ -1,18 +1,37 @@
 import express, { Express, Request, Response } from "express";
 //variable de entorno
 import dotenv from 'dotenv';
+//Swagger
+import swaggerUI from 'swagger-ui-express';
+
+
+
 // seguridad
 import cors from 'cors';
 import helmet from 'helmet';
 
 //TODO HTTPS
 import rootRouter from '../routes';
+import mongoose from "mongoose";
 
 // configuracion .env 
 dotenv.config();
 
 // create app
 const server: Express = express();
+// swagger config and route
+
+server.use(
+    '/docs',
+    swaggerUI.serve,
+    swaggerUI.setup(undefined, {
+        swaggerOptions:{
+            url:"/swagger.json",
+            explore:true
+        }
+        
+    })
+    );
 const port: string | number = process.env.port || 8000;
 
 //define server use "/api and use rootRouter from index.ts" in routes
@@ -25,6 +44,8 @@ server.use(
     server.use(express.static('public'));
 
 //TODO:moongoose connection
+
+mongoose.connect('mongodb://localhost:27017/libreria')
 
 //security config
 server.use(helmet());

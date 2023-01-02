@@ -1,0 +1,514 @@
+
+1) 
+
+
+
+
+//2) primero registro de germany
+
+db.Contacts.findOne({"location.country":"Germany"})
+{ _id: ObjectId("63b30a1deba6271c8fbefa66"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Henning', last: 'Mahr' },
+  location: 
+   { street: { number: 2825, name: 'Gartenstraße' },
+     city: 'Weißensee',
+     state: 'Rheinland-Pfalz',
+     country: 'Germany',
+     postcode: 10088,
+     coordinates: { latitude: '-42.1479', longitude: '-96.5328' },
+     timezone: { offset: '+6:00', description: 'Almaty, Dhaka, Colombo' } },
+  email: 'henning.mahr@example.com',
+  login: 
+   { uuid: '78c45fa0-1f81-424b-bed3-22e5b18cb52d',
+     username: 'ticklishdog227',
+     password: 'underwear',
+     salt: 'f0FehqUT',
+     md5: 'f09dd45293e9bf0811cc90d228815f52',
+     sha1: 'b646dd38c8719256b0698ecdd50a22c3b828110c',
+     sha256: '2eded2480e44059b516d76434db4fefffea1d2b31c0a7796639efb28c5e2d476' },
+  dob: { date: '1953-12-21T17:26:40.246Z', age: 69 },
+  registered: { date: '2018-06-15T10:33:50.703Z', age: 4 },
+  phone: '0605-7731821',
+  cell: '0174-9860080',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/36.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/36.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/36.jpg' },
+  nat: 'DE' }
+Pruebas
+
+3) buscar con blake
+db.Contacts.find({"name.first":"Blake"})
+{ _id: ObjectId("63b30a1deba6271c8fbefa67"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Blake', last: 'Tremblay' },
+  location: 
+   { street: { number: 2689, name: 'Dalhousie Ave' },
+     city: 'Notre Dame de Lourdes',
+     state: 'Nova Scotia',
+     country: 'Canada',
+     postcode: 'Q9X 6K1',
+     coordinates: { latitude: '-44.7344', longitude: '-134.9741' },
+     timezone: { offset: '-10:00', description: 'Hawaii' } },
+  email: 'blake.tremblay@example.com',
+  login: 
+   { uuid: '7eda00c0-242e-4145-971d-ee0986a86f72',
+     username: 'happyzebra494',
+     password: 'knickers',
+     salt: '166aMFzO',
+     md5: '9f332a92608e45408bb0b4568cf4ab12',
+     sha1: 'ec9b013851095fad0286a0c84f00e1088734aee3',
+     sha256: 'b3e06970ce81e75fb04af8923bf5cf7aaf76271d16ef6f0530cf7e1c4af91f6d' },
+  dob: { date: '1952-11-11T03:02:26.828Z', age: 70 },
+  registered: { date: '2015-12-20T06:45:28.093Z', age: 7 },
+  phone: '143-946-9152',
+  cell: '720-406-9760',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/57.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/57.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/57.jpg' },
+  nat: 'CA' }
+{ _id: ObjectId("63b30a1eeba6271c8fbf0172"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Blake', last: 'Gauthier' },
+  location: 
+   { street: { number: 548, name: 'Oak St' },
+     city: 'Southampton',
+     state: 'Prince Edward Island',
+     country: 'Canada',
+     postcode: 'S0X 8X1',
+     coordinates: { latitude: '30.5775', longitude: '84.6555' },
+     timezone: { offset: '-12:00', description: 'Eniwetok, Kwajalein' } },
+  email: 'blake.gauthier@example.com',
+  login: 
+   { uuid: '2320bde0-1b3a-49c3-84b8-513cbb157b31',
+     username: 'silverpanda277',
+     password: 'babyface',
+     salt: 'l86rwXai',
+     md5: '7cd7f1240eea290fc86b5d429b6202dc',
+     sha1: '725131e3de3aac7afc3e39b93a15c9906450457a',
+     sha256: 'a88ee30421135b8f08943f92a4ab6d5fd0bb3c3aa352aa466ed51de1ae7c7e94' },
+  dob: { date: '1947-04-02T21:04:59.771Z', age: 75 },
+  registered: { date: '2008-03-10T00:20:22.847Z', age: 14 },
+  phone: '820-674-7635',
+  cell: '171-639-3548',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/63.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/63.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/63.jpg' },
+  nat: 'CA' }
+{ _id: ObjectId("63b30a1eeba6271c8fbf089f"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Blake', last: 'Lewis' },
+  location: 
+   { street: { number: 4623, name: 'White Swan Road' },
+     city: 'Masterton',
+     state: 'Northland',
+     country: 'New Zealand',
+     postcode: 31052,
+     coordinates: { latitude: '-13.4281', longitude: '-80.5749' },
+     timezone: 
+      { offset: '+4:00',
+        description: 'Abu Dhabi, Muscat, Baku, Tbilisi' } },
+  email: 'blake.lewis@example.com',
+  login: 
+   { uuid: 'eb090803-324f-45e8-8635-40d171f0ff71',
+     username: 'heavybird949',
+     password: 'zach',
+     salt: 'choHJHDR',
+     md5: '765a27fcaf02f6345e1bbd3e79deec06',
+     sha1: '3d3e93b2e1b852142e69c21fc5159a8cbeb37cd9',
+     sha256: '174011e6e9deb14c78b18b8418d9063a0e2b4938f02b521fb28603504d1e704e' },
+  dob: { date: '1994-02-05T21:28:53.253Z', age: 28 },
+  registered: { date: '2012-07-06T23:52:42.864Z', age: 10 },
+  phone: '(141)-301-6421',
+  cell: '(690)-210-7435',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/31.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/31.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/31.jpg' },
+  nat: 'NZ' }
+{ _id: ObjectId("63b30a1eeba6271c8fbf0c09"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Blake', last: 'Thomas' },
+  location: 
+   { street: { number: 8311, name: 'Tara Street' },
+     city: 'Athlone',
+     state: 'Longford',
+     country: 'Ireland',
+     postcode: 31920,
+     coordinates: { latitude: '-0.7904', longitude: '-91.4077' },
+     timezone: 
+      { offset: '+1:00',
+        description: 'Brussels, Copenhagen, Madrid, Paris' } },
+  email: 'blake.thomas@example.com',
+  login: 
+   { uuid: 'e688880e-ff03-46d5-be0e-a4bb90c9f112',
+     username: 'redmeercat272',
+     password: 'playboy1',
+     salt: '8cnQUynW',
+     md5: '81b3dd3d3a22d458ead7e84c3e65afe5',
+     sha1: '3a07a88d7b5f48a7408fc44a62c0f938acf07e52',
+     sha256: 'cb7213cf957955f60742939b6e05923cb72bc32cada81938f561894b43cf1513' },
+  dob: { date: '1961-08-28T21:30:51.018Z', age: 61 },
+  registered: { date: '2010-05-26T14:56:42.870Z', age: 12 },
+  phone: '031-832-2039',
+  cell: '081-197-4279',
+  id: { name: 'PPS', value: '7929944T' },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/4.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/4.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/4.jpg' },
+  nat: 'IE' }
+
+
+db.Contacts.find({"gender":"male"}).limit(5)
+{ _id: ObjectId("63b30a1deba6271c8fbefa66"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Henning', last: 'Mahr' },
+  location: 
+   { street: { number: 2825, name: 'Gartenstraße' },
+     city: 'Weißensee',
+     state: 'Rheinland-Pfalz',
+     country: 'Germany',
+     postcode: 10088,
+     coordinates: { latitude: '-42.1479', longitude: '-96.5328' },
+     timezone: { offset: '+6:00', description: 'Almaty, Dhaka, Colombo' } },
+  email: 'henning.mahr@example.com',
+  login: 
+   { uuid: '78c45fa0-1f81-424b-bed3-22e5b18cb52d',
+     username: 'ticklishdog227',
+     password: 'underwear',
+     salt: 'f0FehqUT',
+     md5: 'f09dd45293e9bf0811cc90d228815f52',
+     sha1: 'b646dd38c8719256b0698ecdd50a22c3b828110c',
+     sha256: '2eded2480e44059b516d76434db4fefffea1d2b31c0a7796639efb28c5e2d476' },
+  dob: { date: '1953-12-21T17:26:40.246Z', age: 69 },
+  registered: { date: '2018-06-15T10:33:50.703Z', age: 4 },
+  phone: '0605-7731821',
+  cell: '0174-9860080',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/36.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/36.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/36.jpg' },
+  nat: 'DE' }
+{ _id: ObjectId("63b30a1deba6271c8fbefa67"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Blake', last: 'Tremblay' },
+  location: 
+   { street: { number: 2689, name: 'Dalhousie Ave' },
+     city: 'Notre Dame de Lourdes',
+     state: 'Nova Scotia',
+     country: 'Canada',
+     postcode: 'Q9X 6K1',
+     coordinates: { latitude: '-44.7344', longitude: '-134.9741' },
+     timezone: { offset: '-10:00', description: 'Hawaii' } },
+  email: 'blake.tremblay@example.com',
+  login: 
+   { uuid: '7eda00c0-242e-4145-971d-ee0986a86f72',
+     username: 'happyzebra494',
+     password: 'knickers',
+     salt: '166aMFzO',
+     md5: '9f332a92608e45408bb0b4568cf4ab12',
+     sha1: 'ec9b013851095fad0286a0c84f00e1088734aee3',
+     sha256: 'b3e06970ce81e75fb04af8923bf5cf7aaf76271d16ef6f0530cf7e1c4af91f6d' },
+  dob: { date: '1952-11-11T03:02:26.828Z', age: 70 },
+  registered: { date: '2015-12-20T06:45:28.093Z', age: 7 },
+  phone: '143-946-9152',
+  cell: '720-406-9760',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/57.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/57.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/57.jpg' },
+  nat: 'CA' }
+{ _id: ObjectId("63b30a1deba6271c8fbefa69"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Ali', last: 'Sepetçi' },
+  location: 
+   { street: { number: 5751, name: 'Necatibey Cd' },
+     city: 'Isparta',
+     state: 'Ardahan',
+     country: 'Turkey',
+     postcode: 34581,
+     coordinates: { latitude: '-4.0288', longitude: '162.7058' },
+     timezone: 
+      { offset: '-4:00',
+        description: 'Atlantic Time (Canada), Caracas, La Paz' } },
+  email: 'ali.sepetci@example.com',
+  login: 
+   { uuid: '16e7e1fc-a2d4-4ddb-8bcb-86d16257f8bc',
+     username: 'ticklishzebra667',
+     password: 'ursula',
+     salt: 'zUZ6zmX8',
+     md5: 'ee51854b44913ad1cecac75cb7e9765d',
+     sha1: '68fde828ba033c5368b18fe2e884c05cfbd46237',
+     sha256: 'ee343c2e76acd5f78a92cf2b691d63704649de4c9b2fc92419e6240a296e0292' },
+  dob: { date: '1966-02-07T06:10:12.667Z', age: 56 },
+  registered: { date: '2008-01-21T23:23:04.651Z', age: 14 },
+  phone: '(312)-001-2089',
+  cell: '(237)-514-4399',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/90.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/90.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/90.jpg' },
+  nat: 'TR' }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6a"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Milos', last: 'Lührs' },
+  location: 
+   { street: { number: 1766, name: 'Mittelstraße' },
+     city: 'Nauen',
+     state: 'Brandenburg',
+     country: 'Germany',
+     postcode: 78800,
+     coordinates: { latitude: '-65.1828', longitude: '-160.5517' },
+     timezone: 
+      { offset: '0:00',
+        description: 'Western Europe Time, London, Lisbon, Casablanca' } },
+  email: 'milos.luhrs@example.com',
+  login: 
+   { uuid: '20e295e0-0b49-486e-86cd-e63cfedfa65e',
+     username: 'goldenkoala854',
+     password: 'thedude',
+     salt: 'qcq2LBeg',
+     md5: 'e48e52f8637d97b81e87a05f2e4e38bb',
+     sha1: '302c59362c5f79182b5e3af3b061b3c0929a3cf4',
+     sha256: 'c0a7116fa44095a8c548577ab5b923345e1a3194529a6a264001265ddf237c56' },
+  dob: { date: '1979-02-07T19:24:46.387Z', age: 43 },
+  registered: { date: '2009-10-31T20:27:44.231Z', age: 13 },
+  phone: '0112-9093245',
+  cell: '0178-6486494',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/25.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/25.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/25.jpg' },
+  nat: 'DE' }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6b"),
+  gender: 'male',
+  name: { title: 'Mr', first: 'Jason', last: 'Mason' },
+  location: 
+   { street: { number: 630, name: 'Avondale Ave' },
+     city: 'Albany',
+     state: 'Tennessee',
+     country: 'United States',
+     postcode: 54467,
+     coordinates: { latitude: '-19.7503', longitude: '-112.0490' },
+     timezone: 
+      { offset: '+5:30',
+        description: 'Bombay, Calcutta, Madras, New Delhi' } },
+  email: 'jason.mason@example.com',
+  login: 
+   { uuid: '401230cf-36c8-4167-9ff3-3b872a93c404',
+     username: 'ticklishtiger914',
+     password: 'asimov',
+     salt: 'pBoipegQ',
+     md5: '086641282799af916e5a26e1260f6450',
+     sha1: '775c7ebd00ec140d79bd0988a08dca2a0b6c10a0',
+     sha256: 'eb750702a15771665fe9dbc5581c1a71e4200c82c4722043eee6efc9b949a288' },
+  dob: { date: '1982-03-06T15:05:53.024Z', age: 40 },
+  registered: { date: '2004-04-04T02:04:06.216Z', age: 18 },
+  phone: '(741)-591-5605',
+  cell: '(858)-761-3854',
+  id: { name: 'SSN', value: '231-91-6877' },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/men/58.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/men/58.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/men/58.jpg' },
+  nat: 'US' }
+
+
+
+  db.Contacts.find({}).limit(5).sort({name:-1})
+{ _id: ObjectId("63b30a1eeba6271c8fbf0032"),
+  gender: 'female',
+  name: { title: 'Ms', first: 'یلدا', last: 'سلطانی نژاد' },
+  location: 
+   { street: { number: 8392, name: 'خاوران' },
+     city: 'ساری',
+     state: 'قم',
+     country: 'Iran',
+     postcode: 34101,
+     coordinates: { latitude: '51.5272', longitude: '-175.7653' },
+     timezone: 
+      { offset: '+10:00',
+        description: 'Eastern Australia, Guam, Vladivostok' } },
+  email: 'yld.sltnynjd@example.com',
+  login: 
+   { uuid: 'ae50248e-e03e-4a4b-863e-d52ba76e96c8',
+     username: 'tinymouse640',
+     password: 'connect',
+     salt: 'NcJXueex',
+     md5: '8d3d4a983e28c1b0db242e2df1400ec2',
+     sha1: 'eaee31c938dd77a7564fc0b62f5bd0deda90f9c5',
+     sha256: 'fbe4e633ce0d3dcd31526a4d497379635ebe85b57f3916a8574b05490f5f9c50' },
+  dob: { date: '1947-10-10T05:01:06.324Z', age: 75 },
+  registered: { date: '2010-06-01T04:13:33.229Z', age: 12 },
+  phone: '070-11175338',
+  cell: '0931-810-3800',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/women/68.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/women/68.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/women/68.jpg' },
+  nat: 'IR' }
+{ _id: ObjectId("63b30a1deba6271c8fbefd48"),
+  gender: 'female',
+  name: { title: 'Ms', first: 'یاسمین', last: 'رضاییان' },
+  location: 
+   { street: { number: 7959, name: 'خالد اسلامبولی' },
+     city: 'کاشان',
+     state: 'کرمانشاه',
+     country: 'Iran',
+     postcode: 71808,
+     coordinates: { latitude: '65.3952', longitude: '-66.7423' },
+     timezone: { offset: '+2:00', description: 'Kaliningrad, South Africa' } },
+  email: 'ysmyn.rdyyn@example.com',
+  login: 
+   { uuid: '3e7029d4-4ccd-496e-97bf-29cbcfdd7af1',
+     username: 'whitedog975',
+     password: 'abcdefgh',
+     salt: 'KiqAYQlk',
+     md5: 'c773ab5d00c3389a270ef1c1f31f48e0',
+     sha1: '8c1919cffa7dbb35aaa5b343983f5adfb5070f1a',
+     sha256: '5e2a2e387a3b1faf5b824bbaee6e3f06df0d7118c8d373e8b9e6d30600f03b70' },
+  dob: { date: '1979-10-22T03:53:39.559Z', age: 43 },
+  registered: { date: '2008-02-05T21:09:09.827Z', age: 14 },
+  phone: '093-01473151',
+  cell: '0949-916-7603',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/women/61.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/women/61.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/women/61.jpg' },
+  nat: 'IR' }
+{ _id: ObjectId("63b30a1eeba6271c8fbf088f"),
+  gender: 'female',
+  name: { title: 'Ms', first: 'یاسمن', last: 'رضاییان' },
+  location: 
+   { street: { number: 464, name: 'میدان شهدا' },
+     city: 'اسلام‌شهر',
+     state: 'خراسان رضوی',
+     country: 'Iran',
+     postcode: 10911,
+     coordinates: { latitude: '-70.9257', longitude: '-148.0800' },
+     timezone: 
+      { offset: '+8:00',
+        description: 'Beijing, Perth, Singapore, Hong Kong' } },
+  email: 'ysmn.rdyyn@example.com',
+  login: 
+   { uuid: '0e05e6e5-fe4d-44ed-9c8b-6acc000b68df',
+     username: 'beautifulfish127',
+     password: 'jimmys',
+     salt: 'pPKXK0Xh',
+     md5: '801e14b69f8aec5abc47edcdf61d3151',
+     sha1: '7fd396dfe9e2bbab162689706405b179ff1fdc92',
+     sha256: 'e1e0d51fa7407be864bdc1ad2ee7b1765e9bc468635c31008abe46a900bd4df1' },
+  dob: { date: '1993-02-08T20:27:55.543Z', age: 29 },
+  registered: { date: '2007-08-26T08:51:53.962Z', age: 15 },
+  phone: '020-63505104',
+  cell: '0995-751-5415',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/women/44.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/women/44.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/women/44.jpg' },
+  nat: 'IR' }
+{ _id: ObjectId("63b30a1eeba6271c8fbf0624"),
+  gender: 'female',
+  name: { title: 'Ms', first: 'کیانا', last: 'نجاتی' },
+  location: 
+   { street: { number: 4599, name: 'جلال آل احمد' },
+     city: 'خرم‌آباد',
+     state: 'قم',
+     country: 'Iran',
+     postcode: 30889,
+     coordinates: { latitude: '4.7526', longitude: '78.7722' },
+     timezone: { offset: '+7:00', description: 'Bangkok, Hanoi, Jakarta' } },
+  email: 'khyn.njty@example.com',
+  login: 
+   { uuid: '3bb05c98-1adb-4db9-a95c-577ba00f1c37',
+     username: 'yellowgoose370',
+     password: 'memphis',
+     salt: 'GjIAv0Ep',
+     md5: 'fb84391d0a5cc4fc8c6a0a43c80e466a',
+     sha1: '8b89103af2c952b4c69016634e2e6cfe1d314865',
+     sha256: 'bc141121dc84486e5603cbbe443ba7140ed0dcc3111b88870b8548962f45734a' },
+  dob: { date: '1975-01-08T01:20:52.991Z', age: 47 },
+  registered: { date: '2016-04-10T20:54:17.485Z', age: 6 },
+  phone: '010-56928159',
+  cell: '0900-840-0573',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/women/25.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/women/25.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/women/25.jpg' },
+  nat: 'IR' }
+{ _id: ObjectId("63b30a1deba6271c8fbefb6b"),
+  gender: 'female',
+  name: { title: 'Ms', first: 'کیانا', last: 'نجاتی' },
+  location: 
+   { street: { number: 8985, name: 'آیت الله کاشانی' },
+     city: 'گرگان',
+     state: 'سیستان و بلوچستان',
+     country: 'Iran',
+     postcode: 27367,
+     coordinates: { latitude: '-8.9705', longitude: '74.8167' },
+     timezone: 
+      { offset: '-3:00',
+        description: 'Brazil, Buenos Aires, Georgetown' } },
+  email: 'khyn.njty@example.com',
+  login: 
+   { uuid: '0a79b127-863e-4452-9d2f-17e91a11d98e',
+     username: 'organicgorilla197',
+     password: 'spyder',
+     salt: 'gAXBLb4E',
+     md5: '2d5a763cf138ba6e141117e35569f463',
+     sha1: '973aad5cbc3d2c1d5c1cb04de6b6d7cee77f99ca',
+     sha256: '6664e0ac034521746767281df2b0df0b6b0e6ad3d476bc3cbbdf9af49cb065db' },
+  dob: { date: '1954-10-10T04:12:45.148Z', age: 68 },
+  registered: { date: '2012-04-07T01:40:33.497Z', age: 10 },
+  phone: '053-18368890',
+  cell: '0920-516-1147',
+  id: { name: '', value: null },
+  picture: 
+   { large: 'https://randomuser.me/api/portraits/women/51.jpg',
+     medium: 'https://randomuser.me/api/portraits/med/women/51.jpg',
+     thumbnail: 'https://randomuser.me/api/portraits/thumb/women/51.jpg' },
+  nat: 'IR' }
+
+  clonar collection
+
+  db.Contacts.aggregate([{ $match: {} }, { $out: "contact2" }])
+show collections
+contact2
+Contacts
+
+rename
+
+db.Contacts.updateMany({},{$rename:{name:"nombre"}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 5000,
+  modifiedCount: 5000,
+  upsertedCount: 0 }
+
+delete
+
+db.Contacts.deleteMany({"state":"florida"})
+{ acknowledged: true, deletedCount: 0 }
+db.Contacts.deleteMany({"state":"Florida"})
+{ acknowledged: true, deletedCount: 0 }
+
+
+
+
+
