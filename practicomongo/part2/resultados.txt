@@ -1,0 +1,193 @@
+
+==========================
+
+
+db.Contacts.aggregate([
+{ $group: {_id: "$location.city", cuenta: {$sum: 1}}},
+{ $sort: { _id: 1 }},
+{
+          "$project" : {
+             "Ciudades" : "$_id",
+             
+             },
+            
+       },
+       {
+          "$limit" : 5.0
+       }
+    
+    
+]);
+
+
+{ _id: '\'t Veld', Ciudades: '\'t Veld' }
+{ _id: '1e Exloermond', Ciudades: '1e Exloermond' }
+{ _id: 'Aaborg Øst', Ciudades: 'Aaborg Øst' }
+{ _id: 'Aalborg S.Ø.', Ciudades: 'Aalborg S.Ø.' }
+{ _id: 'Aalsmeer', Ciudades: 'Aalsmeer' }
+
+
+=========================================
+
+
+db.Contacts.aggregate([ {$match:{$and:[{"location.country":"France"},{"dob.age":{$gt:18,$lt:65}}]}}, {$out: "Francia"} ])
+
+============================================
+
+db.Contacts.updateMany(
+   {},
+   [
+      { $set:
+         { numfavorito:
+            { $floor:
+               { $multiply: [ { $rand: {} }, 10000 ] }
+            }
+         }
+      }
+    ]
+)
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 5000,
+  modifiedCount: 5000,
+  upsertedCount: 0 }
+  
+
+db.Contacts.aggregate( [
+  {
+    $bucketAuto: {
+      groupBy: "$numfavorito",
+      buckets: 5
+      
+    }
+  }
+] )
+{ _id: { min: 2, max: 2112 }, count: 1000 }
+{ _id: { min: 2112, max: 4043 }, count: 1000 }
+{ _id: { min: 4043, max: 6031 }, count: 1000 }
+{ _id: { min: 6031, max: 7988 }, count: 1000 }
+{ _id: { min: 7988, max: 9993 }, count: 1000 }
+
+
+=====================================================
+
+db.books.aggregate( [ { $project : { title : 1 , author : 1 } } ] )
+db.Contacts.aggregate( [ { $project : { "nombre.first" : 1 , "nombre.last" : 1 } } ] )
+{ _id: ObjectId("63b30a1deba6271c8fbefa66"),
+  nombre: { first: 'Henning', last: 'Mahr' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa67"),
+  nombre: { first: 'Blake', last: 'Tremblay' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa68"),
+  nombre: { first: 'Deniz', last: 'Samancı' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa69"),
+  nombre: { first: 'Ali', last: 'Sepetçi' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6a"),
+  nombre: { first: 'Milos', last: 'Lührs' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6b"),
+  nombre: { first: 'Jason', last: 'Mason' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6c"),
+  nombre: { first: 'Jonathan', last: 'Medina' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6d"),
+  nombre: { first: 'Meral', last: 'Erkekli' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6e"),
+  nombre: { first: 'Sário', last: 'Cavalcanti' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6f"),
+  nombre: { first: 'Brandie', last: 'Sanders' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa70"),
+  nombre: { first: 'Ronald', last: 'Castillo' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa71"),
+  nombre: { first: 'Oliver', last: 'Jensen' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa72"),
+  nombre: { first: 'Alejandro', last: 'Velasco' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa73"),
+  nombre: { first: 'آوا', last: 'یاسمی' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa74"),
+  nombre: { first: 'Jade', last: 'Chow' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa75"),
+  nombre: { first: 'Lisa', last: 'Kelley' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa76"),
+  nombre: { first: 'Lidia', last: 'Rojas' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa77"),
+  nombre: { first: 'Alena', last: 'Menard' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa78"),
+  nombre: { first: 'غزل', last: 'گلشن' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa79"),
+  nombre: { first: 'Yasemin', last: 'Sepetçi' } }
+Type "it" for more
+
+===========================================
+
+
+db.Contacts.aggregate( [
+   // First Stage
+   {
+     $unwind: { path: "$_id" }
+   },
+   // Second Stage
+   { $project : { "nombre.first" : 1 , "nombre.last" : 1 } },
+   // Third Stage
+   {
+     $sort: { "name.last": -1 }
+   }
+] )
+{ _id: ObjectId("63b30a1deba6271c8fbefa66"),
+  nombre: { first: 'Henning', last: 'Mahr' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa67"),
+  nombre: { first: 'Blake', last: 'Tremblay' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa68"),
+  nombre: { first: 'Deniz', last: 'Samancı' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa69"),
+  nombre: { first: 'Ali', last: 'Sepetçi' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6a"),
+  nombre: { first: 'Milos', last: 'Lührs' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6b"),
+  nombre: { first: 'Jason', last: 'Mason' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6c"),
+  nombre: { first: 'Jonathan', last: 'Medina' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6d"),
+  nombre: { first: 'Meral', last: 'Erkekli' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6e"),
+  nombre: { first: 'Sário', last: 'Cavalcanti' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa6f"),
+  nombre: { first: 'Brandie', last: 'Sanders' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa70"),
+  nombre: { first: 'Ronald', last: 'Castillo' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa71"),
+  nombre: { first: 'Oliver', last: 'Jensen' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa72"),
+  nombre: { first: 'Alejandro', last: 'Velasco' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa73"),
+  nombre: { first: 'آوا', last: 'یاسمی' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa74"),
+  nombre: { first: 'Jade', last: 'Chow' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa75"),
+  nombre: { first: 'Lisa', last: 'Kelley' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa76"),
+  nombre: { first: 'Lidia', last: 'Rojas' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa77"),
+  nombre: { first: 'Alena', last: 'Menard' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa78"),
+  nombre: { first: 'غزل', last: 'گلشن' } }
+{ _id: ObjectId("63b30a1deba6271c8fbefa79"),
+  nombre: { first: 'Yasemin', last: 'Sepetçi' } }
+Type "it" for more
+
+
+=====================================================
+b.Contacts.aggregate([
+{
+$project: { _id: 0, nombre: 1,  "dob.date": { $dateToString: { format: "%Y-%m-%d", date: "$date" } }}}, { $sort: {"dob.date": 1}},
+{ $limit: 5 }
+])
+{ dob: { date: null },
+  nombre: { title: 'Mr', first: 'Ali', last: 'Sepetçi' } }
+{ dob: { date: null },
+  nombre: { title: 'Mr', first: 'Milos', last: 'Lührs' } }
+{ dob: { date: null },
+  nombre: { title: 'Mr', first: 'Blake', last: 'Tremblay' } }
+{ dob: { date: null },
+  nombre: { title: 'Mr', first: 'Henning', last: 'Mahr' } }
+{ dob: { date: null },
+  nombre: { title: 'Miss', first: 'Deniz', last: 'Samancı' } }
+
+
