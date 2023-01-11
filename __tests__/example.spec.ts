@@ -1,9 +1,7 @@
-describe('My First test suite',() =>{
-    it('My first test case', () =>{
+describe('My first Test Suite', () => {
 
+    it('My First Test Case', () => {
         expect(true).toBe(true);
-
-
     });
-
-})
+    
+});
