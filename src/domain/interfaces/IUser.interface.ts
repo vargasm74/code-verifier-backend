@@ -1,9 +1,13 @@
-import { IKata } from "./IKata.interface"
+import mongoose from "mongoose";
 
-export interface IUser {
-    name: string,
-    email: string,
-    password: string
-    age: number,
-    katas: string[]
+export const userEntity = () => {
+
+    let userSchema = new mongoose.Schema({
+name: String,
+email: String,
+age: Number
+    }
+    )
+
+    return mongoose.model('user', userSchema);
 }

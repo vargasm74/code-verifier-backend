@@ -1,19 +1,18 @@
 import mongoose from "mongoose";
-import { IUser } from "../interfaces/IUser.interface";
+
 
 
 export const userEntity = () => {
 
-    let userSchema = new mongoose.Schema<IUser>(
+    let userSchema = new mongoose.Schema(
         {
             name: { type: String, required: true },
             email: { type: String, required: true },
-            password: { type: String, required: true },
-            age: { type: Number, required: true },
-            katas: { type: [], required: true}
+            age: { type: Number, required: true }
+           
         }
     );
 
-    return mongoose.models.Users || mongoose.model<IUser>('Users', userSchema);
+    return mongoose.models.Users || mongoose.model('Users', userSchema);
 
 }
