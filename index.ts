@@ -1,13 +1,17 @@
 import dotenv from 'dotenv';
+import express,{Express, Request,Response} from 'express';
 import server from './src/server';
 import { LogError, LogSuccess } from './src/utils/logger';
 
 // * Configuration the .env file
 dotenv.config();
 
-const port = process.env.PORT || 8000;
+const port: string | number= process.env.PORT || 8000;
 
-// * Execute SERVER
+
+
+
+// * Execute Server
 server.listen(port, () => {
     LogSuccess(`[SERVER ON]: Running in http://localhost:${port}/api`);
 });

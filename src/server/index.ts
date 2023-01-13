@@ -1,5 +1,9 @@
 import express, { Express, Request, Response } from "express";
 
+//enviroment variable
+import dotenv from 'dotenv';
+
+
 // Swagger
 import swaggerUi from 'swagger-ui-express';
 
@@ -13,9 +17,12 @@ import helmet from 'helmet';
 import rootRuter from '../routes';
 import mongoose from "mongoose";
 
+//Configuration the .env file
+dotenv.config();
+
 // * Create Express APP
 const server: Express = express();
-
+const port: string | number = process.env.PORT || 8000;
 
 // * Swagger Config and route
 server.use(

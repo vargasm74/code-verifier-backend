@@ -9,7 +9,7 @@ const logger_1 = require("./src/utils/logger");
 // * Configuration the .env file
 dotenv_1.default.config();
 const port = process.env.PORT || 8000;
-// * Execute SERVER
+// * Execute Server
 server_1.default.listen(port, () => {
     (0, logger_1.LogSuccess)(`[SERVER ON]: Running in http://localhost:${port}/api`);
 });
