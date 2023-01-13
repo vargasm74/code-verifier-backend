@@ -70,7 +70,7 @@ try {
 
 // update user by 
 
-export const updateUser= async(user: any, id: string): Promise<any | undefined> =>{
+export const updateUserByID= async(user: any, id: string): Promise<any | undefined> =>{
 
     try {
         

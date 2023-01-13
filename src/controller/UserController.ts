@@ -4,7 +4,7 @@ import { LogSuccess, LogError, LogWarning } from "../utils/logger";
 
 // ORM - User Collection
 
-import {deleteUSerByID, getAllUsers, getUserByID, createUser, updateUser} from "../domain/orm/User.orm"
+import {deleteUSerByID, getAllUsers, getUserByID, createUser, updateUserByID} from "../domain/orm/User.orm"
 
 
 @Route("/api/users")
@@ -87,14 +87,14 @@ export class UserController implements IUserController{
 
     
     @Put("/")
-    public async updateUSerById(id: string, user: any): Promise<any> {
+    public async updateUSer(@Query()id: string, user: any): Promise<any> {
 
 
       let response: any='';
      if(id){
        LogSuccess(`[/api/users] update User por ID: ${id}`)
  
-       await this.updateUSerById(id,user).then((r)=>{
+       await updateUserByID(id,user).then((r)=>{
         response={
           message: `user update by ${id} Succesfull`
         }
